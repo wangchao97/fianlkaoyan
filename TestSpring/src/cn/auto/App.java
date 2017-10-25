@@ -19,6 +19,7 @@ public class App  {
 	}	
 	@Test
 	public void test_p(){
+		int c=9;
 		ApplicationContext ac =  new ClassPathXmlApplicationContext("cn/ObjectRelation/bean_p.xml");
 		UserAction userAction = (UserAction) ac.getBean("userAction");
 		userAction.excute();

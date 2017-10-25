@@ -15,6 +15,7 @@ public class UserAction {
 		this.userService = userService;
 	}
 	public String excute() {
+		int b=0;
 		System.out.println("excuteִ��");
 		userService.save();
 		return null;
