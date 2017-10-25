@@ -13,7 +13,8 @@ public class UserAction {
 	private UserService userService;
 	public void setUserService(UserService userService) {
 		int a =0;
-		this.userService = userService;
+	         int a=1;
+		this.userService  =  userService ;
 	}
 	public String excute() {
 		int a =0;
