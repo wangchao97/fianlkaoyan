@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <!-- IOC容器的配置，要创建的所有对象都在配置 这里-->
+    
+    
+       <!-- 
+       		给对象属性注入值
+       				# p 名称空间给属性赋值
+       				( spring 3. 0以上才有)
+        -->
+        <bean id ="userDao" class="cn.dao.UserDao"></bean>
+        
+        <bean id ="userService" class="cn.service.UserService" p:userDao-ref="userDao"></bean>
+        
+        <bean id ="userAction"  class="cn.action.UserAction" p:userService-ref="userService"></bean>
+        
+        <bean id="user"  class="cn.ObjectRelation.User" p:name="jack">
+        </bean>
+</beans>

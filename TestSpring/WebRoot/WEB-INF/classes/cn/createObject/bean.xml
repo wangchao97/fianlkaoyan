@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <!-- IOC容器的配置，要创建的所有对象都在配置 这里-->
+        
+        <!-- 1.创建默认无参的构造函数对象
+        <bean id = "user"  class="cn.test.User"></bean>
+         -->
+         
+         <bean id= "str" class="java.lang.String">
+         	<constructor-arg value="jacks"></constructor-arg>
+         </bean>
+        <!-- 2.带参数的构造器
+        <bean id ="user" class="cn.test.User">
+        		<constructor-arg value="20" index="0" type="int"></constructor-arg>
+        		<constructor-arg  index="1" type="java.lang.String" ref="str"></constructor-arg>
+        </bean> -->
+        <!-- 3.工厂创建对象 -->
+       <bean id="factory" class="cn.createObject.ObjectFactory"></bean>
+       <bean id="user2" factory-bean="factory" factory-method="getInstance"></bean>
+       <bean id= "user"   class="cn.createObject.ObjectFactory" factory-method="getStaticInstance"></bean>
+</beans>
